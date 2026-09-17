@@ -1,0 +1,250 @@
+/* ------------------------------------------------------------
+   Wanchun Shen — site styles
+   One column, one typeface, one accent. Edit the variables
+   below to change the whole site's colour or measure.
+   ------------------------------------------------------------ */
+
+:root {
+  --paper: #ffffff;
+  --ink: #232323;
+  --ink-soft: #6b6a66;
+  --rule: #e5e3de;
+  --link: #35597d;
+  --link-hover: #1f3d5c;
+  --measure: 54rem;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 1.25rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+.site {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2.5rem 0 3rem;
+}
+
+/* Header ---------------------------------------------------- */
+
+.site-header {
+  margin-bottom: 3rem;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+}
+
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: var(--ink);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+/* Content --------------------------------------------------- */
+
+main a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(53, 89, 125, 0.45);
+}
+
+main a:hover {
+  color: var(--link-hover);
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+h1 {
+  font-size: 1.85rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 2.75rem 0 0.9rem;
+}
+
+main > h2:first-child {
+  margin-top: 0;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+sup {
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Home page introduction: name and bio beside the photograph on wide
+   screens, stacked (name, photo, bio) on narrow ones. */
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 3rem;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 0 0 1.75rem;
+}
+
+.contact {
+  color: var(--ink-soft);
+  margin-bottom: 1.75rem;
+}
+
+/* Lists of papers, talks, notes: bullets with a hanging indent */
+
+.entries {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.entries li {
+  margin: 0 0 0.6rem;
+  padding-left: 0.25rem;
+}
+
+.entries li::marker {
+  color: var(--ink-soft);
+}
+
+.entries ul {
+  list-style: circle;
+  padding-left: 1.5rem;
+  margin: 0.35rem 0 0;
+}
+
+.entries ul li {
+  margin-bottom: 0.35rem;
+}
+
+.note {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.95em;
+  margin-top: 0.15rem;
+}
+
+/* Footer ---------------------------------------------------- */
+
+.site-footer {
+  margin-top: 4.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.epigraph {
+  margin: 0;
+}
+
+.epigraph blockquote {
+  margin: 0 0 0.5rem;
+  font-style: italic;
+}
+
+.epigraph blockquote p {
+  margin: 0;
+}
+
+.epigraph figcaption {
+  font-style: normal;
+}
+
+/* Wider screens */
+
+@media (min-width: 52rem) {
+  .intro {
+    grid-template-columns: 1fr 19rem;
+    grid-template-rows: auto 1fr;
+    align-items: start;
+  }
+
+  .intro-heading {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .intro-bio {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .portrait {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: 78% 50%;
+    margin: 0.35rem 0 0;
+  }
+}
+
+/* Small screens */
+
+@media (max-width: 30rem) {
+  body {
+    font-size: 1.0625rem;
+  }
+
+  .site {
+    padding-top: 1.75rem;
+  }
+
+  .site-header {
+    margin-bottom: 2.25rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
