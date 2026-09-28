@@ -100,7 +100,8 @@ h2 {
   margin: 2.75rem 0 0.9rem;
 }
 
-main > h2:first-child {
+main > h2:first-child,
+.intro-body > h2:first-child {
   margin-top: 0;
 }
 
@@ -214,7 +215,7 @@ sup {
     grid-row: 1;
   }
 
-  .intro-bio {
+  .intro-body {
     grid-column: 1;
     grid-row: 2;
   }
